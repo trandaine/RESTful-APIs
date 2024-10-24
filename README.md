@@ -21,7 +21,7 @@ cd sever
 npm install
 ```
 
-Then, in the sever.js file, specify the connection string to your MongoDB sever. In the code, I'm using the local MongoDB sever so I must have username, password, database name and port to connect to sever
+Then, in the ```sever.js``` file, specify the connection string to your MongoDB sever. In the code, I'm using the local MongoDB sever so I must have username, password, database name and port to connect to sever
 
 ```JavaScript
 const database = "database-name";       //required
