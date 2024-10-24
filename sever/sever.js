@@ -6,11 +6,14 @@ var express = require('express'),
 const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
 
-const username = "sa";
-const password = "Dai2018";
-const connectionStr = `mongodb://${username}:${password}@localhost:27017/Tododb?authSource=admin`; 
+const database = "database-name";
+const username = "username";
+const password = "password";
+const databasePort = 27017;
+const connectionStr = `mongodb://${username}:${password}@localhost:${databasePort}`; 
 mongoose.set("strictQuery", true); 
 const options = { 
+    dbName: database,
     useNewUrlParser: true, 
     useUnifiedTopology: true, 
 }; 
