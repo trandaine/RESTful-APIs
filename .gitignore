@@ -1,0 +1,4 @@
+.idea
+front-end/node_modules
+sever/node_modules
+.DS_Store
