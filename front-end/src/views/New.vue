@@ -15,10 +15,13 @@ export default {
     'word-form': WordForm
   },
   methods: {
-    createOrUpdate: async function(word) {
+    async createOrUpdate(word) {
       const res = await api.createWord(word);
       this.flash('Word created', 'success');
       this.$router.push(`/words/${res._id}`);
+    },
+    flash(message, type) {
+      console.log(`${message}, ${type}`);
     }
   }
 };

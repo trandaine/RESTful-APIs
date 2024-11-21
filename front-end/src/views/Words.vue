@@ -38,9 +38,13 @@ export default {
     const sure = window.confirm('Are you sure?');
     if (!sure) return;
     await api.deleteWord(id);
-    this.flash('Word deleted successfully!', 'success');
+    this.flash('Word deleted successfully!', 'Type: success');
     const newWords = this.words.filter(word => word._id !== id);
     this.words = newWords;
+    this.words = await api.getWords();
+    },
+    flash(message, type) {
+      console.log(`${message}, ${type}`);
     }
   },
   async mounted() {
