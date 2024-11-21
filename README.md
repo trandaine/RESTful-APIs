@@ -5,7 +5,9 @@ RESTful applications use HTTP requests to perform four operations termed as CRUD
 
 ## Logs:
 - Create a new vocabulary application backend and Tesing APIs - 2024-10-31 - Done on 15:44
-- Create frontend using Vuejs - 2024-10-31 - Ongoing
+- Create frontend using Vuejs - 2024-10-31 - Done
+- Fixing bugs of create new words, delete, edit (21/11 - Done)
+- Fixing Test function (2024-11-21 - On-going)
 
 ## Tools:
 - Node.js@20.18.0
@@ -15,3 +17,19 @@ RESTful applications use HTTP requests to perform four operations termed as CRUD
 - Express@latest
 
 ## Installation
+First of all, clone this project to destined folder on local machine using 
+
+```bash
+git clone https://github.com/trandaine/RESTful-APIs.git
+cd RESTful-APIs
+cd sever
+npm install
+npm start
+```
+
+Then in the root folder, locate to the front-end folder:
+```bash
+cd front-end
+npm install
+npm run serve
+```
