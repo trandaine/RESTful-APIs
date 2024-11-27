@@ -114,6 +114,19 @@ app.post("/user/login", async (req, res) => {
     }
   });
 
+// Logout
+app.post('/user/logout', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Error destroying session:', err);
+      return res.status(500).json({ message: 'Logout failed' });
+    }
+    res.clearCookie('connect.sid'); // Clear the session cookie
+    res.json({ message: 'Logout successful' });
+  });
+});
+
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 

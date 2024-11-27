@@ -7,6 +7,8 @@ import Show from './views/Show.vue';
 import Test from './views/Test.vue';
 import LoginForm from '.\components\LoginForm.vue';
 import RegisterForm from '.\components\RegisterForm.vue';
+import Logout from './components/Logout.vue';
+import LoginForm from './components/LoginForm.vue';
 // import { component } from 'vue/types/umd';
 
 Vue.use(Router);
@@ -16,6 +18,10 @@ export default new Router({
     base: process.env.BASE_URL,
     linkActiveClass: 'active',
     routes: [
+        {
+            path: '/logout',
+            component: Logout
+        },
         {
             path: '/login',
             component: LoginForm
@@ -55,5 +61,3 @@ export default new Router({
         }
     ]
 });
-
-
