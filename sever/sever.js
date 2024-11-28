@@ -11,10 +11,10 @@ const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
 
 const database = "vocab-builder";
-const username = "sa";
+const email = "sa";
 const password = "Dai2018";
 const databasePort = 27017;
-const connectionStr = `mongodb://${username}:${password}@localhost:${databasePort}`; 
+const connectionStr = `mongodb://${email}:${password}@localhost:${databasePort}`; 
 mongoose.set("strictQuery", true); 
 const options = { 
     dbName: database,
@@ -53,9 +53,9 @@ app.use(session({
 
 app.post("/user/login", async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ email });
     if (!user) {
       return res.status(400).json({
         message: "Invalid credentials",
@@ -70,7 +70,7 @@ app.post("/user/login", async (req, res) => {
     // Successful login
     req.session.user = {
       id: user._id,
-      username: user.username,
+      email: user.email,
       role: user.role,
     };
     res.json({ message: "Login successful", user: req.session.user });
@@ -81,38 +81,38 @@ app.post("/user/login", async (req, res) => {
 });
 
 
-  // Register
-  app.post('/user/register', async (req, res) => {
-    try {
-      const { username, email, password } = req.body;
-  
-      // Check if user already exists
-      const existingUser = await User.findOne({$or: [{ username }]});
-      if (existingUser) {
-        return res.status(400).json({ message: 'Username already exists' });
-      }
-  
-      // Hash the password
-      const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(password, salt);
-  
-      // Create a new user
-      const newUser = new User({
-        username,
-        password: hashedPassword,
-      });
-  
-      await newUser.save();
-  
-      // You can optionally log in the user automatically after registration
-    //   req.session.user = { id: newUser._id, username: newUser.username, role: newUser.role }; 
-  
-      res.status(201).json({ message: 'User registered successfully', user: req.session.user });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Server error' });
+app.post('/user/register', async (req, res) => {
+  try {
+    const { username, email, password } = req.body;
+
+    // Check if user already exists
+    const existingUser = await User.findOne({ $or: [{ username }, { email }] });
+    if (existingUser) {
+      return res.status(400).json({ message: 'Username or email already exists' });
     }
-  });
+
+    // Hash the password
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    // Create a new user
+    const newUser = new User({
+      username,
+      email,
+      password: hashedPassword,
+    });
+
+    await newUser.save();
+
+    // You can optionally log in the user automatically after registration
+    req.session.user = { id: newUser._id, username: newUser.username, role: newUser.role }; 
+
+    res.status(201).json({ message: 'User registered successfully', user: req.session.user });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
 
 // Logout
 app.post('/user/logout', (req, res) => {

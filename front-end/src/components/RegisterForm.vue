@@ -6,12 +6,13 @@
         </div>
         <form @submit.prevent="register">
         <div class="form-group">
-          <label for="username">Username:</label>
-          <input type="text" id="username" placeholder="Vũ Trần Quang Minh" v-model="username" required/>
+          <label for="name">Username:</label>
+          <!-- <input type="text" id="text" placeholder="Vũ Trần Quang Minh" v-model="email" required/> -->
+          <input type="text" id="text" placeholder="Vũ Trần Quang Minh" required/>
         </div>
         <div class="form-group">
-            <label for="username">Email:</label>
-            <input type="email"  id="username" placeholder="name@email.com" v-model="username" required/>
+            <label for="email">Email:</label>
+            <input type="email"  id="email" placeholder="name@email.com" v-model="email" required/>
           </div>
         <div class="form-group">
           <label for="password">Password:</label>
@@ -29,7 +30,8 @@
   export default {
     data() {
       return {
-        username: '',
+        name: '',
+        email: '',
         password: '',
         errorMessage: ''
       };
@@ -43,11 +45,11 @@
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-              username: this.username,
+              name: this.name,
+              email: this.email,
               password: this.password
             })
           });
-  
           if (response.ok) {
             // Registration successful
             this.errorMessage = '';
