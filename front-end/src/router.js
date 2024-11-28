@@ -5,10 +5,9 @@ import New from './views/New.vue';
 import Edit from './views/Edit.vue';
 import Show from './views/Show.vue';
 import Test from './views/Test.vue';
-import LoginForm from '.\components\LoginForm.vue';
-import RegisterForm from '.\components\RegisterForm.vue';
-import Logout from './components/Logout.vue';
 import LoginForm from './components/LoginForm.vue';
+import RegisterForm from './components/RegisterForm.vue';
+import User from './components/User.vue';
 // import { component } from 'vue/types/umd';
 
 Vue.use(Router);
@@ -19,8 +18,8 @@ export default new Router({
     linkActiveClass: 'active',
     routes: [
         {
-            path: '/logout',
-            component: Logout
+            path: '/user',
+            component: User
         },
         {
             path: '/login',
