@@ -1,7 +1,7 @@
 const express = require('express'),
     app = express(),
     port = process.env.PORT || 3000;
-const User = require('./models/User'); // Import your User model
+const User = require('.api/models/User'); // Import your User model
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
 

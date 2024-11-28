@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const baseURL = 'http://localhost:3000/words/';
+const userURL = 'http://localhost:3000/users/';
 
 const handleError = fn => (...params) =>
   fn(...params).catch(error => {
