@@ -97,13 +97,27 @@ const authController = {
     });
   },
 
+//   // Get user data
+//   async me(req, res) {
+//     try {
+//       if (!req.session.user) {
+//         return res.status(401).json({ message: "Unauthorized" });
+//       }
+//       const user = await User.findById(req.session.user.id);
+//       res.json({ user });
+//     } catch (error) {
+//       console.error(error);
+//       res.status(500).json({ message: "Server error" });
+//     }
+//   },
+// };
+
   // Get user data
   async me(req, res) {
     try {
-      if (!req.session.user) {
-        return res.status(401).json({ message: "Unauthorized" });
-      }
-      const user = await User.findById(req.session.user.id);
+      const token = req.headers.authorization.split(" ")[1];
+      const decodedToken = jwt.verify(token, "RANDOM-TOKEN");
+      const user = await User.findById(decodedToken.userId);
       res.json({ user });
     } catch (error) {
       console.error(error);

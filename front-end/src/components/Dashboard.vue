@@ -24,6 +24,9 @@ export default {
       this.user = response.user;
     } catch (error) {
       console.error('Error fetching user data:', error);
+      if (error.response && error.response.status === 401) {
+        this.$router.push('/login'); // Redirect to login if unauthorized
+      }
     }
   },
   methods: {

@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
-
+require('dotenv').config();
 // const bcrypt = require('bcryptjs');
 const session = require("express-session");
 global.Vocab = require("./api/models/vocabModel");
@@ -11,7 +11,10 @@ const authRoutes = require("./api/routes/authRoutes"); // Import auth routes
 // require database connection
 const dbConnect = require("./db/dbConnect");
 const auth = require("./auth");
+
+
 // const database = "vocab-builder";
+
 // const email = "sa";
 // const password = "Dai2018";
 // const databasePort = 27017;
@@ -31,6 +34,8 @@ const auth = require("./auth");
 //         console.log("Connected to MongoDB!");
 //     }
 // });
+
+
 
 // CORS headers (Consider refining these for production)
 app.use((req, res, next) => {
@@ -59,7 +64,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   session({
-    secret: "34d683bec1dd47ff7320d68599cf348f772988a03c06b5a07f5d54767a98345d",
+    secret: process.env.SECRET_KEY,
     resave: false,
     saveUninitialized: true,
   })

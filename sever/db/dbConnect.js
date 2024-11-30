@@ -1,6 +1,6 @@
 require('dotenv').config();
 const mongoose = require("mongoose");
-console.log('DB_URL:', process.env.DB_URL); // Add this line to verify
+// console.log('DB_URL:', process.env.DB_URL); // Add this line to verify
 
 
 async function dbConnect() {

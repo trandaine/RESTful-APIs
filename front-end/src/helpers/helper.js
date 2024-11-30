@@ -38,6 +38,8 @@ export const api = {
           "Content-Type": "application/json",
         },
       });
+      // Store the token in local storage
+      localStorage.setItem("token", response.data.token);
       return response.data;
     } catch (error) {
       console.error('Error logging in:', error.response ? error.response.data : error.message);
@@ -67,6 +69,8 @@ export const api = {
           "Content-Type": "application/json",
         },
       });
+      // Remove the token from local storage
+      localStorage.removeItem("token");
       return response.data;
     } catch (error) {
       console.error('Error logging out:', error.response ? error.response.data : error.message);
@@ -76,9 +80,11 @@ export const api = {
 
   async getUser() {
     try {
+      const token = localStorage.getItem("token");
       const response = await axios.get(userURL + "me", {
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
         },
       });
       return response.data;
