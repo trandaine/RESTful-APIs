@@ -42,11 +42,11 @@
      };
    },
    methods: {
-onSubmit: function() {
-  if (this.word.english === '' || this.word.german === '') {
-    this.errorsPresent = true;
-  } else {
-    this.$emit('createOrUpdate', this.word);
+      onSubmit: function() {
+        if (this.word.english === '' || this.word.german === '') {
+          this.errorsPresent = true;
+        } else {
+        this.$emit('createOrUpdate', this.word);
   }
 }
 }

@@ -15,11 +15,11 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  role: { 
-    type: String,
-    enum: ['customer', 'admin'], // Define possible roles
-    default: 'customer'
-  }
+  // role: { 
+  //   type: String,
+  //   enum: ['customer', 'admin'], // Define possible roles
+  //   default: 'customer'
+  // }
 });
-
+// module.exports = mongoose.model.Users || mongoose.model("Users", UserSchema);
 module.exports = mongoose.model('User', UserSchema);

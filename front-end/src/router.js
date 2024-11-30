@@ -8,6 +8,8 @@ import Test from './views/Test.vue';
 import LoginForm from './components/LoginForm.vue';
 import RegisterForm from './components/RegisterForm.vue';
 import User from './components/User.vue';
+import Dashboard from './components/Dashboard.vue';
+// import { component } from 'vue/types/umd';
 // import { component } from 'vue/types/umd';
 
 Vue.use(Router);
@@ -17,6 +19,10 @@ export default new Router({
     base: process.env.BASE_URL,
     linkActiveClass: 'active',
     routes: [
+        {
+            path: '/dashboard',
+            component: Dashboard
+        },
         {
             path: '/user',
             component: User

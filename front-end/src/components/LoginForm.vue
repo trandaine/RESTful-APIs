@@ -1,64 +1,61 @@
 <template>
-    <div class="container">
-      <div class="form-box">
+  <div class="container">
+    <div class="form-box">
+      <div class="form-header">
         <h1>Login</h1>
-        <form @submit.prevent="login">
-          <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email"  id="email" placeholder="name@email.com" v-model="email" required/>
-          </div>
-          <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" placeholder="••••••••" v-model="password" required/>
-          </div>
-          <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
-          <button type="submit">Login</button>
-          <p>Don't have an account? <router-link to="/register">Register</router-link></p>
-        </form>
       </div>
+      <form @submit.prevent="login">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" placeholder="name@email.com" v-model="email" required/>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" placeholder="••••••••" v-model="password" required/>
+        </div>
+        <button type="submit">Login</button>
+        <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
+        <p>Don't have an account? <router-link to="/register">Register</router-link></p>
+      </form>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        email: '',
-        password: '',
-        errorMessage: ''
-      };
-    },
-    methods: {
-      async login() {
-        try {
-          const response = await fetch('/user/login', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ 
-              email: this.email, 
-              password: this.password 
-            })
-          });
-  
-          if (response.ok) {
-            // Login successful
-            this.errorMessage = '';
-            // Redirect or handle successful login
-            this.$router.push('/dashboard'); 
-          } else {
-            const data = await response.json();
-            this.errorMessage = data.message;
-          }
-        } catch (error) {
-          console.error('Error:', error);
-          this.errorMessage = 'An error occurred';
+  </div>
+</template>
+
+<script>
+import { api } from '../helpers/helper.js';
+
+export default {
+  data() {
+    return {
+      email: '',
+      password: '',
+      errorMessage: ''
+    };
+  },
+  methods: {
+    async login() {
+      try {
+        const credentials = {
+          email: this.email,
+          password: this.password
+        };
+        const response = await api.loginUser(credentials);
+        if (response) {
+          // Login successful
+          this.errorMessage = '';
+          // Redirect or handle successful login
+          this.$router.push('/words'); 
+        } else {
+          this.errorMessage = 'Login failed';
         }
+      } catch (error) {
+        console.error('Error:', error);
+        this.errorMessage = error.response ? error.response.data.message : 'An error occurred';
       }
     }
-  };
-  </script>
+  }
+};
+</script>
 
 <style>
 /* General Styles */
