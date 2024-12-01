@@ -57,13 +57,13 @@ export default {
 };
 </script>
 
-<style>
+<!-- <style>
 /* General Styles */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Open Sans', sans-serif;
-    background-color: #60a5fa !important;
+    background-color: #60a5fa;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -167,4 +167,4 @@ button:hover {
 .signup a:hover {
     text-decoration: underline;
 }
-</style>
+</style> -->

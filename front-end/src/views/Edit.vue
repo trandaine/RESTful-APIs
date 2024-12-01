@@ -17,7 +17,7 @@ export default {
   name: 'edit',
   components: {
     'word-form': WordForm,
-    Navbar
+    //Navbar
   },
   data: function() {
     return {

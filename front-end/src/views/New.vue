@@ -15,7 +15,7 @@ export default {
   name: 'new-word',
   components: {
     'word-form': WordForm,
-    Navbar
+    //Navbar
   },
   methods: {
     async createOrUpdate(word) {
