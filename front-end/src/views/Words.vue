@@ -21,7 +21,7 @@
         </tr>
       </table>
     </div>
-  </template>
+</template>
 
 <script>
 import { api } from '../helpers/helper.js';

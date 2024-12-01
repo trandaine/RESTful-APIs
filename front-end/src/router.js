@@ -37,7 +37,7 @@ export default new Router({
         },
         {
             path: '/',
-            redirect: '/words'
+            redirect: '/login'
         },
         {
             path: '/words',

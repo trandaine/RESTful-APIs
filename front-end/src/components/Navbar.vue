@@ -1,5 +1,4 @@
 <template>
-  <div id="app">
     <div class="ui inverted segment navbar">
       <div class="ui center aligned container">
         <div class="ui large secondary inverted pointing menu compact">
@@ -15,44 +14,9 @@
         </div>
       </div>
     </div>
-    <div class="ui text container">
-      <div class="ui one column grid">
-        <div class="column">
-          <router-view />
-        </div>
-      </div>
-    </div>
-  </div>
 </template>
-
 <script>
 export default {
-  name: 'app'
+  name: 'Navbar'
 };
 </script>
-
-<style>
-#app > div.navbar {
-  margin-bottom: 1.5em;
-}
-.myFlash {
-  width: 250px;
-  margin: 10px;
-  position: absolute;
-  top: 50;
-  right: 0;
-}
-input {
-  width: 300px;
-}
-div.label {
-  width: 120px;
-}
-div.input {
-  margin-bottom: 10px;
-}
-button.ui.button {
-  margin-top: 15px;
-  display: block;
-}
-</style>
