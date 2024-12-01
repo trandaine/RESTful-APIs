@@ -64,7 +64,7 @@ import { api } from '../helpers/helper.js';
 </script>
 
 
-<style>
+<!-- <style>
 /* General styles */
 body {
   margin: 0;
@@ -175,5 +175,5 @@ button:hover {
 .login-link a:hover {
   text-decoration: underline;
 }
-</style>
+</style> -->
 

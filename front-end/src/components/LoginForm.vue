@@ -57,7 +57,7 @@ export default {
 };
 </script>
 
-<style>
+<!-- <style>
 /* General Styles */
 body {
     margin: 0;
@@ -167,4 +167,4 @@ button:hover {
 .signup a:hover {
     text-decoration: underline;
 }
-</style>
+</style> -->

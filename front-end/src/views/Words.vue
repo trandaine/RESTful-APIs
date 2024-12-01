@@ -1,6 +1,11 @@
 <template>
+  <div id="app">
+    <Navbar />
     <div>
-      <Navbar />
+      <div class="ui text container">
+      <div class="ui one column grid">
+        <div class="column">
+      <!-- <Navbar /> -->
       <h1>Words</h1>
       <table id="words" class="ui celled compact table">
         <thead>
@@ -21,6 +26,10 @@
           <a :href="`/words/${word._id}`">Destroy</a></td>
         </tr>
       </table>
+    </div>
+  </div>
+</div>
+</div>
     </div>
 </template>
 
