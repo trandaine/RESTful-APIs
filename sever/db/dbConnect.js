@@ -16,7 +16,7 @@ async function dbConnect() {
       }
     )
     .then(() => {
-        console.log("Successfully connected to MongoDB!");
+        console.log("Successfully connected to MongoDB Atlas!");
       })
       .catch((error) => {
         console.log("Unable to connect to MongoDB!");
