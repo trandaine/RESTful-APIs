@@ -1,7 +1,6 @@
 <template>
   <div>
     <h1>Show Word</h1>
-
     <div class="ui labeled input fluid">
       <div class="ui label">
         <i class="germany flag"></i> German

@@ -1,5 +1,6 @@
 <template>
     <div>
+      <Navbar />
       <h1>Test</h1>
   
       <div v-if="words.length < 5">
@@ -14,11 +15,14 @@
   <script>
   import { api } from '../helpers/helper.js';
   import VocabTest from '../components/VocabTest.vue';
+  import Navbar from '../components/Navbar.vue';
+
   
   export default {
     name: 'test',
     components: {
-      'vocab-test': VocabTest
+      'vocab-test': VocabTest,
+      Navbar
     },
     data() {
       return {

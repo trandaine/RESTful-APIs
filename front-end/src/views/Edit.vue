@@ -1,18 +1,23 @@
 <template>
+  <div>
+    <Navbar />
     <div>
       <h1>Edit Word</h1>
       <word-form @createOrUpdate="createOrUpdate" :word="this.word"></word-form>
     </div>
-  </template>
+  </div>
+</template> 
 
 <script>
 import WordForm from '../components/WordForm.vue';
 import { api } from '../helpers/helper.js';
+import Navbar from '../components/Navbar.vue';
 
 export default {
   name: 'edit',
   components: {
-    'word-form': WordForm
+    'word-form': WordForm,
+    Navbar
   },
   data: function() {
     return {

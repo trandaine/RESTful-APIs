@@ -1,5 +1,6 @@
 <template>
     <div>
+      <Navbar />
       <h1>Words</h1>
       <table id="words" class="ui celled compact table">
         <thead>
@@ -24,10 +25,14 @@
 </template>
 
 <script>
+import Navbar from '../components/Navbar.vue';
 import { api } from '../helpers/helper.js';
 
 export default {
   name: 'words',
+  components: {
+    Navbar
+  },
   data() {
     return {
       words: []

@@ -1,5 +1,6 @@
 <template>
     <div>
+      <Navbar />
       <h1>New Word</h1>
       <word-form @createOrUpdate="createOrUpdate"></word-form>
     </div>
@@ -8,11 +9,13 @@
 <script>
 import WordForm from '../components/WordForm.vue';
 import { api } from '../helpers/helper.js';
+import Navbar from '../components/Navbar.vue';
 
 export default {
   name: 'new-word',
   components: {
-    'word-form': WordForm
+    'word-form': WordForm,
+    Navbar
   },
   methods: {
     async createOrUpdate(word) {
