@@ -77,8 +77,11 @@
           this.result = `<strong>You got the following words wrong:</strong> ${incorrect}`;
           this.resultClass = 'error';
         }
-      }
+      },
+      flash(message, type, options = {}) {
+      console.log(`${type.toUpperCase()}: ${message}`);
     }
+  }
   };
   </script>
   
