@@ -13,28 +13,6 @@ const dbConnect = require("./db/dbConnect");
 const auth = require("./auth");
 
 
-// const database = "vocab-builder";
-
-// const email = "sa";
-// const password = "Dai2018";
-// const databasePort = 27017;
-// const connectionStr = `mongodb://${email}:${password}@localhost:${databasePort}`;
-
-// mongoose.set("strictQuery", true);
-// const options = {
-//     dbName: database,
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-// };
-
-// mongoose.connect(connectionStr, options, (error, connection) => {
-//     if (error) {
-//         console.error("Error connecting to MongoDB:", error);
-//     } else {
-//         console.log("Connected to MongoDB!");
-//     }
-// });
-
 
 
 // CORS headers (Consider refining these for production)
