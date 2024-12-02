@@ -12,7 +12,7 @@
 
         <div class="ui labeled input fluid">
           <div class="ui label">
-            <i class="spain flag"></i> Spainish
+            <i class="spain flag"></i> Spanish
           </div>
           <input type="text" readonly :disabled="testOver" :value="currWord.spainish"/>
         </div>

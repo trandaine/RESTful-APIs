@@ -7,12 +7,8 @@ import Show from './views/Show.vue';
 import Test from './views/Test.vue';
 import LoginForm from './components/LoginForm.vue';
 import RegisterForm from './components/RegisterForm.vue';
-import User from './components/User.vue';
 import Dashboard from './components/Dashboard.vue';
-import Translate from './components/TranslateForm.vue';
 import TranslateForm from './components/TranslateForm.vue';
-// import { component } from 'vue/types/umd';
-// import { component } from 'vue/types/umd';
 
 Vue.use(Router);
 
@@ -25,10 +21,6 @@ export default new Router({
             path: '/dashboard',
             name: 'dashboard',
             component: Dashboard
-        },
-        {
-            path: '/user',
-            component: User
         },
         {
             path: '/translate',
@@ -44,7 +36,7 @@ export default new Router({
         },
         {
             path: '/',
-            redirect: '/translate'
+            redirect: '/login'
         },
         {
             path: '/words',

@@ -10,7 +10,7 @@ const dbConnect = require("./db/dbConnect");
 const auth = require("./auth");
 const cors = require("cors");
 
-// Configure CORS
+// Configure CORS 
 app.use(cors({
   origin: 'http://localhost:8080', // Allow requests from this origin
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
