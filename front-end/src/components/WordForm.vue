@@ -37,7 +37,8 @@
       default: () => {
         return {
           english: '',
-          german: ''
+          german: '',
+          spanish: ''
           };
         }
       }

@@ -97,27 +97,29 @@ const authController = {
     });
   },
 
-//   // Get user data
-//   async me(req, res) {
-//     try {
-//       if (!req.session.user) {
-//         return res.status(401).json({ message: "Unauthorized" });
-//       }
-//       const user = await User.findById(req.session.user.id);
-//       res.json({ user });
-//     } catch (error) {
-//       console.error(error);
-//       res.status(500).json({ message: "Server error" });
-//     }
-//   },
-// };
 
-  // Get user data
+  // // Get user data
+  // async me(req, res) {
+  //   try {
+  //     const token = req.headers.authorization.split(" ")[1];
+  //     const decodedToken = jwt.verify(token, "RANDOM-TOKEN");
+  //     const user = await User.findById(decodedToken.userId);
+  //     res.json({ user });
+  //   } catch (error) {
+  //     console.error(error);
+  //     res.status(500).json({ message: "Server error" });
+  //   }
+  // },
   async me(req, res) {
     try {
       const token = req.headers.authorization.split(" ")[1];
+      // console.log('Token:', token); // Log the token
       const decodedToken = jwt.verify(token, "RANDOM-TOKEN");
+      // console.log('Decoded Token:', decodedToken); // Log the decoded token
       const user = await User.findById(decodedToken.userId);
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
       res.json({ user });
     } catch (error) {
       console.error(error);

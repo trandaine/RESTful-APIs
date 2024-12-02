@@ -2,14 +2,14 @@
   <div id="app">
     <Navbar />
     <div class="ui text container">
-    <div class="ui one column grid">
-    <div class="column">
-    <h1>User Center</h1>
-    <p>Hello, {{ user.name }}</p>
-    <p>My mail is {{ user.name }}</p>
-    <button class="positive ui button" @click="logout" >Logout</button>
-    </div>
-    </div>
+      <div class="ui one column grid">
+        <div class="column">
+          <h1>User Center</h1>
+          <p>Hello, {{ user.username }}</p>
+          <p>My mail is {{ user.email }}</p>
+          <button class="positive ui button" @click="logout">Logout</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>

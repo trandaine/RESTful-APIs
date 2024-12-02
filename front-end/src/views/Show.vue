@@ -2,55 +2,57 @@
   <div id="app">
     <Navbar />
     <div class="ui text container">
-    <div class="ui one column grid">
-    <div class="column">
-      <div>
-        <h1>Show Word</h1>
-        <div class="ui labeled input fluid">
-          <div class="ui label">
-            <i class="germany flag"></i> German
+      <div class="ui one column grid">
+        <div class="column">
+          <div>
+            <h1>Show Word</h1>
+            <div class="ui labeled input fluid">
+              <div class="ui label"><i class="germany flag"></i> German</div>
+              <input type="text" readonly :value="word.german" />
+            </div>
+            <div class="ui labeled input fluid">
+              <div class="ui label">
+                <i class="united kingdom flag"></i> English
+              </div>
+              <input type="text" readonly :value="word.english" />
+            </div>
+            <div class="ui labeled input fluid">
+              <div class="ui label"><i class="spain flag"></i> Spanish</div>
+              <input type="text" readonly :value="word.spanish" />
+            </div>
+            <div class="actions">
+              <router-link
+                :to="{ name: 'edit', params: { id: this.$route.params.id } }"
+              >
+                Edit word
+              </router-link>
+            </div>
           </div>
-          <input type="text" readonly  :value="word.german"/>
         </div>
-        <div class="ui labeled input fluid">
-          <div class="ui label">
-            <i class="united kingdom flag"></i> English
-          </div>
-          <input type="text" readonly  :value="word.english"/>
-        </div>
-        <div class="actions">
-          <router-link :to="{ name: 'edit', params: { id: this.$route.params.id }}">
-            Edit word
-          </router-link>
-        </div>
-
       </div>
-  </div>
-  </div>
-  </div>
+    </div>
   </div>
 </template>
 
 <script>
-import { api } from '../helpers/helper.js';
-import Navbar from '../components/Navbar.vue';
+import { api } from "../helpers/helper.js";
+import Navbar from "../components/Navbar.vue";
 
 export default {
-  name: 'show',
+  name: "show",
   components: {
-    Navbar
+    Navbar,
   },
   data() {
     return {
-      word: ''
+      word: "",
     };
   },
   async mounted() {
     this.word = await api.getWord(this.$route.params.id);
-  }
+  },
 };
 </script>
-
 
 <style scoped>
 .actions a {
