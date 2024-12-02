@@ -8,15 +8,22 @@
        </div>
        <input type="text" placeholder="Enter word..." v-model="word.german" />
      </div>
- 
+     
+     <div class="ui labeled input fluid">
+       <div class="ui label">
+         <i class="spain flag"></i> Spanish
+       </div>
+       <input type="text" placeholder="Enter word..." v-model="word.spanish" />
+     </div>
+
      <div class="ui labeled input fluid">
        <div class="ui label">
          <i class="united kingdom flag"></i> English
        </div>
        <input type="text" placeholder="Enter word..." v-model="word.english" />
      </div>
- 
-     <button class="positive ui button">Submit</button>
+
+     <button class="btn positive ui button w-100">Submit</button>
    </form>
  </template>
  

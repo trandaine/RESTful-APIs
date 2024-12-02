@@ -115,22 +115,6 @@ button.ui.button {
   margin-bottom: 1rem;
 }
 
-button {
-  width: 100%;
-  padding: 0.7rem;
-  background-color: #4aff8f;
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #21BA45;
-}
 
 .login-link {
   margin-top: 1rem;

@@ -9,6 +9,14 @@
           </div>
           <input type="text" readonly :disabled="testOver" :value="currWord.german"/>
         </div>
+
+        <div class="ui labeled input fluid">
+          <div class="ui label">
+            <i class="spain flag"></i> Spainish
+          </div>
+          <input type="text" readonly :disabled="testOver" :value="currWord.spainish"/>
+        </div>
+
         <div class="ui labeled input fluid">
           <div class="ui label">
             <i class="united kingdom flag"></i> English

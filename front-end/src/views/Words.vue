@@ -10,12 +10,14 @@
         <tr>
           <th>English</th>
           <th>German</th>
-          <th colspan="3"></th>
+          <th>Spainish</th>
+          <th colspan="4"></th>
         </tr>
       </thead>
       <tr v-for="(word, i) in words" :key="i">
-        <td>{{ word.english }}</td>
         <td>{{ word.german }}</td>
+        <td>{{ word.spainish }}</td>
+        <td>{{ word.english }}</td>
         <td width="75" class="center aligned">
         <router-link :to="{ name: 'show', params: { id: word._id }}">Show</router-link></td>
         <td width="75" class="center aligned">

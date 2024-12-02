@@ -18,7 +18,7 @@
           <input type="password" id="password" placeholder="••••••••" v-model="password" required>
         </div>
         <!-- <button type="submit">Register</button> -->
-        <button class="positive ui button" type="submit" >Register</button>
+        <button class="positive ui button fluid" type="submit" >Register</button>
         <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
         <p>Already have an account? <router-link to="/login">Login</router-link></p>
       </form>
