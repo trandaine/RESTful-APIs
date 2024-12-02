@@ -9,7 +9,8 @@ import LoginForm from './components/LoginForm.vue';
 import RegisterForm from './components/RegisterForm.vue';
 import User from './components/User.vue';
 import Dashboard from './components/Dashboard.vue';
-import Translate from './components/Translate.vue';
+import Translate from './components/TranslateForm.vue';
+import TranslateForm from './components/TranslateForm.vue';
 // import { component } from 'vue/types/umd';
 // import { component } from 'vue/types/umd';
 
@@ -30,8 +31,8 @@ export default new Router({
             component: User
         },
         {
-            path: '/translate',
-            component: Translate
+            path: '/translateform',
+            component: TranslateForm
         },
         {
             path: '/login',
