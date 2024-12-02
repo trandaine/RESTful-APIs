@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="content-box">
     <div class="form-box">
       <div class="form-header">
         <h1>Login</h1>
@@ -13,7 +13,8 @@
           <label for="password">Password:</label>
           <input type="password" id="password" placeholder="••••••••" v-model="password" required/>
         </div>
-        <button type="submit">Login</button>
+        <!-- <button type="submit">Login</button> -->
+        <button class="positive ui button" type="submit" >Login</button>
         <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
         <p>Don't have an account? <router-link to="/register">Register</router-link></p>
       </form>

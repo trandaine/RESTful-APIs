@@ -48,32 +48,24 @@ button.ui.button {
   margin-top: 15px;
   display: block;
 }
-body123 {
-  margin: 0;
-  padding: 0;
-  font-family: 'Open Sans', sans-serif;
-  background-color: #60a5fa; /* blue-400 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
 
-/* Container for the form */
-.container {
+/* Content-box for the form */
+.content-box {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #101d14;
 }
 
 /* Form Box */
 .form-box {
-  background-color: #fff;
+  background-color: #ffffff;
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.623);
   max-width: 400px;
   width: 100%;
   text-align: center;
@@ -83,7 +75,7 @@ body123 {
 .form-header h1 {
   font-size: 2rem;
   font-weight: bold;
-  color: #111827; /* gray-900 */
+  color: #111827;
   margin-bottom: 1rem;
 }
 
@@ -97,38 +89,36 @@ body123 {
   display: block;
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
-  color: #374151; /* gray-700 */
-  font-weight: bold; /* Makes labels bold */
+  color: #374151;
+  font-weight: bold;
 }
 
 .form-group input {
   width: 100%;
   padding: 0.5rem;
-  border: 1px solid #d1d5db; /* gray-300 */
+  border: 1px solid #d1d5db;
   border-radius: 5px;
   font-size: 1rem;
-  color: #374151; /* gray-700 */
+  color: #374151;
   outline: none;
   box-sizing: border-box;
 }
 
 .form-group input:focus {
-  border-color: #2563eb; /* primary-600 */
-  box-shadow: 0 0 3px rgba(37, 99, 235, 0.5);
+  border-color: #21BA45;
+  box-shadow: 0 0 3px rgba(37, 235, 63, 0.5);
 }
 
-/* Error Message */
 .error-message {
   font-size: 0.9rem;
-  color: #ef4444; /* red-400 */
+  color: #ef4444;
   margin-bottom: 1rem;
 }
 
-/* Button */
 button {
   width: 100%;
   padding: 0.7rem;
-  background-color: #2563eb; /* blue-600 */
+  background-color: #4aff8f;
   color: #fff;
   font-size: 1rem;
   font-weight: 600;
@@ -139,18 +129,17 @@ button {
 }
 
 button:hover {
-  background-color: #1e3a8a; /* dark blue */
+  background-color: #21BA45;
 }
 
-/* Login Link */
 .login-link {
   margin-top: 1rem;
   font-size: 0.9rem;
-  color: #6b7280; /* gray-500 */
+  color: #6b7280;
 }
 
 .login-link a {
-  color: #2563eb; /* blue-600 */
+  color: #2563eb;
   text-decoration: none;
 }
 
@@ -158,64 +147,3 @@ button:hover {
   text-decoration: underline;
 }
 </style>
-
-
-<!-- <template>
-  <div id="app">
-    <div class="ui inverted segment navbar">
-      <div class="ui center aligned container">
-        <div class="ui large secondary inverted pointing menu compact">
-          <router-link to="/words" exact class="item">
-            <i class="comment outline icon"></i> Words
-          </router-link>
-          <router-link to="/words/new" class="item">
-            <i class="plus circle icon"></i> New
-          </router-link>
-          <router-link to="/test" class="item">
-            <i class="graduation cap icon"></i> Test
-          </router-link>
-        </div>
-      </div>
-    </div>
-
-    <div class="ui text container">
-      <div class="ui one column grid">
-        <div class="column">
-          <router-view />
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
-<script>
-export default {
-  name: 'app'
-};
-</script>
-
-<style>
-#app > div.navbar {
-  margin-bottom: 1.5em;
-}
-.myFlash {
-  width: 250px;
-  margin: 10px;
-  position: absolute;
-  top: 50;
-  right: 0;
-}
-input {
-  width: 300px;
-}
-div.label {
-  width: 120px;
-}
-div.input {
-  margin-bottom: 10px;
-}
-button.ui.button {
-  margin-top: 15px;
-  display: block;
-}
-</style> -->

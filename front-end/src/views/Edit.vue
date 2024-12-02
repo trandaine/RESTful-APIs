@@ -1,9 +1,13 @@
 <template>
-  <div>
+  <div id="app">
     <Navbar />
-    <div>
+    <div class="ui text container">
+    <div class="ui one column grid">
+    <div class="column">
       <h1>Edit Word</h1>
       <word-form @createOrUpdate="createOrUpdate" :word="this.word"></word-form>
+    </div>
+    </div>
     </div>
   </div>
 </template> 
@@ -17,7 +21,7 @@ export default {
   name: 'edit',
   components: {
     'word-form': WordForm,
-    //Navbar
+    Navbar
   },
   data: function() {
     return {
