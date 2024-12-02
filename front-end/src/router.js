@@ -31,7 +31,7 @@ export default new Router({
             component: User
         },
         {
-            path: '/translateform',
+            path: '/translate',
             component: TranslateForm
         },
         {
@@ -44,7 +44,7 @@ export default new Router({
         },
         {
             path: '/',
-            redirect: '/login'
+            redirect: '/translate'
         },
         {
             path: '/words',
