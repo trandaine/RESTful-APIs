@@ -52,9 +52,10 @@
 <script>
   import axios from "axios";
   import Navbar from "../components/Navbar.vue";
+
   export default {
     components: {
-        Navbar
+      Navbar,
     },
     data() {
       return {
@@ -63,6 +64,7 @@
         translatedText: "",
         error: null,
         loading: false,
+        apiKey: process.env.VUE_APP_GOOGLE_API_KEY, // Access apiKey from the .env file
       };
     },
     mounted() {
@@ -74,29 +76,28 @@
           this.error = "Please enter some text to translate.";
           return;
         }
-  
+
         this.loading = true;
         this.error = null;
         this.translatedText = "";
-  
+
         const [sourceLang, targetLang] = this.targetLanguage.split("-");
-  
+
         try {
           console.log("Text to translate:", this.text);
           console.log("Target language pair:", this.targetLanguage);
-  
+
           const response = await axios.post(
-            `https://translation.googleapis.com/language/translate/v2?key=AIzaSyA3dXFtP93atuzKA9fl-HtGGVKMXNOzOzM`,
+            `https://translation.googleapis.com/language/translate/v2?key=${this.$googleApiKey}`, // Use the global API key
             {
               q: this.text,
               source: sourceLang,
               target: targetLang,
             }
           );
-  
-          
+
           console.log("API Response:", response.data);
-  
+
           if (response.data.data && response.data.data.translations) {
             this.translatedText = response.data.data.translations[0].translatedText;
           } else {
