@@ -18,13 +18,15 @@
           });
   
           if (response.ok) {
-            // Logout successful
-            this.$router.push('/login'); // Redirect to login page
-          } else {
-            // Handle logout error, if any
+            this.$router.push('/login');
+          }
+          else 
+          {
             console.error('Logout failed');
           }
-        } catch (error) {
+        } 
+        catch (error) 
+        {
           console.error('Error:', error);
         }
       }

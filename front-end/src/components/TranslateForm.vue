@@ -1,54 +1,58 @@
 <template>
     <div id="app">
-    <Navbar />
-    <div class="ui text container">
-      <div class="ui one column grid">
-        <div class="column">
+      <Navbar />
+      <div class="ui text container">
+        <div class="ui one column grid">
+          <div class="column">
             <h1>Translate Text</h1>
             <div class="translate-app ui container">
-            <div class="ui labeled input fluid">
+              <div class="ui labeled input fluid">
                 <div class="ui label">
-                    <i></i>Text
+                  <i></i> Text
                 </div>
-                <input type="text" placeholder="Enter word..." v-model="text" class="ui input"/>
-            </div>
-
-            <div class="ui labeled input fluid">
+                <input
+                  type="text"
+                  placeholder="Enter word..."
+                  v-model="text"
+                  class="ui input"
+                />
+              </div>
+  
+              <div class="ui labeled input fluid">
                 <div class="ui label">
-                    <i></i>Translation
+                  <i></i> Translation
                 </div>
                 <select v-model="targetLanguage" class="ui dropdown fluid">
-                    <option value="en-de">English to German</option>
-                    <option value="de-en">German to English</option>
-                    <option value="en-es">English to Spanish</option>
-                    <option value="es-en">Spanish to English</option>
+                  <option value="en-de">English to German</option>
+                  <option value="de-en">German to English</option>
+                  <option value="en-es">English to Spanish</option>
+                  <option value="es-en">Spanish to English</option>
                 </select>
-            </div>
-        
-            <button class="positive ui button" @click="translateText" :disabled="loading">Translate</button>
-        
-            <div v-if="loading" class="ui active inline loader"></div>
-        
-            <div v-if="translatedText" class="ui message">
+              </div>
+  
+              <button class="positive ui button" @click="translateText" :disabled="loading">Translate</button>
+
+              <div v-if="loading" class="ui active inline loader"></div>
+  
+              <div v-if="translatedText" class="ui message">
                 <h3 class="ui header">Translated Text:</h3>
                 <p>{{ translatedText }}</p>
-            </div>
-        
-            <div v-if="error" class="ui error message">
+              </div>
+  
+              <div v-if="error" class="ui error message">
                 <p>{{ error }}</p>
+              </div>
             </div>
-            </div>
-        </div>
+          </div>
         </div>
       </div>
     </div>
-</template>
+  </template>
   
 <script>
   import axios from "axios";
   import Navbar from "../components/Navbar.vue";
-  
-  export default { 
+  export default {
     components: {
         Navbar
     },
@@ -61,9 +65,12 @@
         loading: false,
       };
     },
+    mounted() {
+      $(".ui.dropdown").dropdown();
+    },
     methods: {
       async translateText() {
-        if (!this.text) {
+        if (!this.text.trim()) {
           this.error = "Please enter some text to translate.";
           return;
         }
@@ -72,28 +79,36 @@
         this.error = null;
         this.translatedText = "";
   
+        const [sourceLang, targetLang] = this.targetLanguage.split("-");
+  
         try {
+          console.log("Text to translate:", this.text);
+          console.log("Target language pair:", this.targetLanguage);
+  
           const response = await axios.post(
-            "https://translate.yandex.net/api/v1.5/tr.json/translate",
-            null,
+            `https://translation.googleapis.com/language/translate/v2?key=AIzaSyA3dXFtP93atuzKA9fl-HtGGVKMXNOzOzM`,
             {
-              params: {
-                key: "dict.1.1.20241202T141323Z.c854a1b1769f21d2.5c78667cb43f1ca66ece5cb161e897e25ca6fa85",
-                text: this.text,
-                lang: this.targetLanguage,
-              },
+              q: this.text,
+              source: sourceLang,
+              target: targetLang,
             }
           );
   
-          this.translatedText = response.data.text[0];
+          
+          console.log("API Response:", response.data);
+  
+          if (response.data.data && response.data.data.translations) {
+            this.translatedText = response.data.data.translations[0].translatedText;
+          } else {
+            this.error = "No translation found!";
+          }
         } catch (err) {
+          console.error("Error:", err);
           this.error = "Failed to fetch translation. Please try again later.";
-          console.error(err);
         } finally {
           this.loading = false;
         }
       },
     },
   };
-  </script>
-  
+</script>
