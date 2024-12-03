@@ -11,30 +11,13 @@ const VocabSchema = new Schema(
             type: String,
             required: 'German word is required'
         },
+        spanish: {
+            type: String,
+            required: 'Spanish word is required'
+        },
     },
     { collection: 'vocab' }
 );
 
 module.exports = mongoose.model('Vocab', VocabSchema);
 
-
-
-// const TaskSchema = new Schema({
-//     name: {
-//         type: String,
-//         required: 'Kindly enter the name of the task'
-//     },
-//     Created_date: {
-//         type: Date,
-//         default: Date.now
-//     },
-//     status: {
-//         type: [{
-//             type: String,
-//             enum: ['pending', 'ongoing', 'completed']
-//         }],
-//         default: ['pending']
-//     }
-// });
-
-// module.exports = mongoose.model('Tasks', TaskSchema);

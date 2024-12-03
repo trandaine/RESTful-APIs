@@ -5,7 +5,10 @@ import New from './views/New.vue';
 import Edit from './views/Edit.vue';
 import Show from './views/Show.vue';
 import Test from './views/Test.vue';
-// import { component } from 'vue/types/umd';
+import LoginForm from './components/LoginForm.vue';
+import RegisterForm from './components/RegisterForm.vue';
+import Dashboard from './components/Dashboard.vue';
+import TranslateForm from './components/TranslateForm.vue';
 
 Vue.use(Router);
 
@@ -15,8 +18,25 @@ export default new Router({
     linkActiveClass: 'active',
     routes: [
         {
+            path: '/dashboard',
+            name: 'dashboard',
+            component: Dashboard
+        },
+        {
+            path: '/translate',
+            component: TranslateForm
+        },
+        {
+            path: '/login',
+            component: LoginForm
+        },
+        {
+            path: '/register',
+            component: RegisterForm
+        },
+        {
             path: '/',
-            redirect: '/words'
+            redirect: '/login'
         },
         {
             path: '/words',
@@ -45,5 +65,3 @@ export default new Router({
         }
     ]
 });
-
-

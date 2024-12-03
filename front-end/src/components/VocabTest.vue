@@ -9,6 +9,14 @@
           </div>
           <input type="text" readonly :disabled="testOver" :value="currWord.german"/>
         </div>
+
+        <div class="ui labeled input fluid">
+          <div class="ui label">
+            <i class="spain flag"></i> Spanish
+          </div>
+          <input type="text" readonly :disabled="testOver" :value="currWord.spainish"/>
+        </div>
+
         <div class="ui labeled input fluid">
           <div class="ui label">
             <i class="united kingdom flag"></i> English
@@ -77,8 +85,11 @@
           this.result = `<strong>You got the following words wrong:</strong> ${incorrect}`;
           this.resultClass = 'error';
         }
-      }
+      },
+      flash(message, type, options = {}) {
+      console.log(`${type.toUpperCase()}: ${message}`);
     }
+  }
   };
   </script>
   

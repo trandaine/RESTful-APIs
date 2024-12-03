@@ -1,51 +1,67 @@
-const express = require('express'),
-    app = express(),
-    port = process.env.PORT || 3000;
+const express = require("express");
+const app = express();
+const port = process.env.PORT || 3000;
+require('dotenv').config();
+const session = require("express-session");
+global.Vocab = require("./api/models/vocabModel");
+const bodyParser = require("body-parser");
+const authRoutes = require("./api/routes/authRoutes"); // Import auth routes
+const dbConnect = require("./db/dbConnect");
+const auth = require("./auth");
+const cors = require("cors");
 
-global.Vocab = require('./api/models/vocabModel');
+// Configure CORS 
+app.use(cors({
+  origin: 'http://localhost:8080', // Allow requests from this origin
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  allowedHeaders: 'Content-Type,Authorization', // Allow the Authorization header
+}));
 
-const mongoose = require("mongoose");
-const bodyParser = require('body-parser');
-
-const database = "vocab-builder";
-const username = "sa";
-const password = "Dai2018";
-const databasePort = 27017;
-const connectionStr = `mongodb://${username}:${password}@localhost:${databasePort}`; 
-mongoose.set("strictQuery", true); 
-const options = { 
-    dbName: database,
-    useNewUrlParser: true, 
-    useUnifiedTopology: true, 
-}; 
-
-mongoose.connect(connectionStr, options, (error, connection) => { 
-    if (error) { 
-        console.error("Error connecting to MongoDB:", error); 
-    } else { 
-        console.log("Connected to MongoDB!"); 
-    } 
-});
-
+// CORS headers (Consider refining these for production)
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*'); // Allow all origins
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS'); // Allow specific methods
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    next();
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
 });
 
-app.put('/api/words/:id', (req, res) => {
-    // Handle PUT request
-    res.json({ message: 'Word updated successfully' });
-});
-
-
-app.use(bodyParser.urlencoded({ extended: true }));
+// Middleware
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-const routes = require('./api/routes/vocabRoutes');
+// Session middleware
+app.use(
+  session({
+    secret: process.env.SECRET_KEY,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+
+// Use the auth routes
+app.use("/user", authRoutes);
+
+// Free endpoint
+app.get("/free-endpoint", (request, response) => {
+  response.json({ message: "You are free to access me anytime" });
+});
+
+// Authentication endpoint
+app.get("/auth-endpoint", auth, (request, response) => {
+  response.json({ message: "You are authorized to access me" });
+});
+
+// Vocab routes (assuming you have a separate vocabRoutes file)
+const routes = require("./api/routes/vocabRoutes");
 routes(app);
 
-app.listen(port);
+// Connect to the database
+dbConnect();
 
-console.log('todo list RESTful API server started on: ' + port);
+// Start the server
+app.listen(port, () => {
+  console.log("Server started on: " + port);
+});
