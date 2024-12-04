@@ -67,9 +67,6 @@
         apiKey: process.env.VUE_APP_GOOGLE_API_KEY, // Access apiKey from the .env file
       };
     },
-    mounted() {
-      $(".ui.dropdown").dropdown();
-    },
     methods: {
       async translateText() {
         if (!this.text.trim()) {

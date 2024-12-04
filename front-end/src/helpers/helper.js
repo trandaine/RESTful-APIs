@@ -42,7 +42,10 @@ export const api = {
       localStorage.setItem("token", response.data.token);
       return response.data;
     } catch (error) {
-      console.error('Error logging in:', error.response ? error.response.data : error.message);
+      console.error(
+        "Error logging in:",
+        error.response ? error.response.data : error.message
+      );
       throw error;
     }
   },
@@ -56,24 +59,33 @@ export const api = {
       });
       return response.data;
     } catch (error) {
-      console.error('Error creating user:', error.response ? error.response.data : error.message);
+      console.error(
+        "Error creating user:",
+        error.response ? error.response.data : error.message
+      );
       throw error;
     }
   },
 
-
   async logoutUser() {
     try {
-      const response = await axios.post(userURL + "logout", {}, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await axios.post(
+        userURL + "logout",
+        {},
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       // Remove the token from local storage
       localStorage.removeItem("token");
       return response.data;
     } catch (error) {
-      console.error('Error logging out:', error.response ? error.response.data : error.message);
+      console.error(
+        "Error logging out:",
+        error.response ? error.response.data : error.message
+      );
       throw error;
     }
   },
@@ -84,12 +96,15 @@ export const api = {
       const response = await axios.get(userURL + "me", {
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
         },
       });
       return response.data;
     } catch (error) {
-      console.error('Error fetching user data:', error.response ? error.response.data : error.message);
+      console.error(
+        "Error fetching user data:",
+        error.response ? error.response.data : error.message
+      );
       throw error;
     }
   },

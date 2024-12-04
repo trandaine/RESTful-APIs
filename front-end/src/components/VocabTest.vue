@@ -14,7 +14,7 @@
           <div class="ui label">
             <i class="spain flag"></i> Spanish
           </div>
-          <input type="text" readonly :disabled="testOver" :value="currWord.spainish"/>
+          <input type="text" readonly :disabled="testOver" :value="currWord.spanish"/>
         </div>
 
         <div class="ui labeled input fluid">
@@ -65,7 +65,7 @@
           this.score += 1;
         } else {
           this.flash('Wrong!', 'error', { timeout: 1000 });
-          this.incorrectGuesses.push(this.currWord.german);
+          this.incorrectGuesses.push(this.currWord.english);
         }
   
         this.english = '';

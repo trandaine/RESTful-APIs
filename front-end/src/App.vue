@@ -1,20 +1,9 @@
 <template>
-  <!-- <div id="app">
-    <Navbar />
-    <div class="ui text container">
-      <div class="ui one column grid">
-        <div class="column">
-          <router-view />
-        </div>
-      </div>
-    </div>
-  </div> -->
   <router-view />
 </template>
 
 <script>
 import Navbar from './components/Navbar.vue';
-import router from './router';
 
 export default {
   name: 'app',

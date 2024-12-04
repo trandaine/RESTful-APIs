@@ -70,9 +70,6 @@ const authController = {
 
       await newUser.save();
 
-      // You can optionally log in the user automatically after registration
-      // req.session.user = { id: newUser._id, username: newUser.username, role: newUser.role };
-
       res
         .status(201)
         .json({
@@ -97,19 +94,6 @@ const authController = {
     });
   },
 
-
-  // // Get user data
-  // async me(req, res) {
-  //   try {
-  //     const token = req.headers.authorization.split(" ")[1];
-  //     const decodedToken = jwt.verify(token, "RANDOM-TOKEN");
-  //     const user = await User.findById(decodedToken.userId);
-  //     res.json({ user });
-  //   } catch (error) {
-  //     console.error(error);
-  //     res.status(500).json({ message: "Server error" });
-  //   }
-  // },
   async me(req, res) {
     try {
       const token = req.headers.authorization.split(" ")[1];

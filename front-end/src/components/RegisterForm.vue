@@ -7,7 +7,7 @@
         <form @submit.prevent="register">
         <div class="form-group">
           <label for="name">Username:</label>
-          <input type="text" id="username" placeholder="Vũ Trần Quang Minh" v-model="username" required/>
+          <input type="text" id="username" placeholder="Trần Quang Đại" v-model="username" required/>
         </div>
         <div class="form-group">
             <label for="email">Email:</label>
