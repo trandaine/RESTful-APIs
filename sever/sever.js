@@ -17,16 +17,6 @@ app.use(cors({
   allowedHeaders: 'Content-Type,Authorization', // Allow the Authorization header
 }));
 
-// CORS headers (Consider refining these for production)
-// app.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   next();
-// });
 
 // Middleware
 app.use(bodyParser.json());
@@ -57,6 +47,9 @@ app.get("/auth-endpoint", auth, (request, response) => {
 // Vocab routes (assuming you have a separate vocabRoutes file)
 const routes = require("./api/routes/vocabRoutes");
 routes(app);
+
+const translateRoutes = require('./api/routes/translateRoutes');
+app.use('/translate-api', translateRoutes);
 
 // Connect to the database
 dbConnect();
