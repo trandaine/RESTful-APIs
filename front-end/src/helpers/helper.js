@@ -38,7 +38,6 @@ export const api = {
           "Content-Type": "application/json",
         },
       });
-      // Store the token in local storage
       localStorage.setItem("token", response.data.token);
       return response.data;
     } catch (error) {
@@ -78,7 +77,6 @@ export const api = {
           },
         }
       );
-      // Remove the token from local storage
       localStorage.removeItem("token");
       return response.data;
     } catch (error) {

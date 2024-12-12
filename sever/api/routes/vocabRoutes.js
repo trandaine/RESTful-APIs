@@ -1,7 +1,6 @@
 module.exports = function(app) {
     const vocab_builder = require('../controllers/vocabController');
 
-    // todoList Routes
     app.route('/words')
         .get(vocab_builder.list_all_words)
         .post(vocab_builder.create_a_word);

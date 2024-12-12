@@ -17,7 +17,6 @@
           <label for="password">Password:</label>
           <input type="password" id="password" placeholder="••••••••" v-model="password" required>
         </div>
-        <!-- <button type="submit">Register</button> -->
         <button class="positive ui button fluid" type="submit" >Register</button>
         <p v-if="errorMessage" class="error-message">{{ errorMessage }}</p>
         <p>Already have an account? <router-link to="/login">Login</router-link></p>
@@ -50,7 +49,6 @@ import { api } from '../helpers/helper.js';
         const response = await api.createUser(user);
         if (response) {
           this.errorMessage = '';
-          // Redirect or handle successful registration
           this.$router.push('/login'); 
         } else {
           this.errorMessage = 'Registration failed';

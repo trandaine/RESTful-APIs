@@ -30,13 +30,12 @@ export default {
   },
   async created() {
     try {
-      // Fetch user data from the server
-      const response = await api.getUser(); // Assuming you have a getUser method to fetch user data
+      const response = await api.getUser();
       this.user = response.user;
     } catch (error) {
       console.error('Error fetching user data:', error);
       if (error.response && error.response.status === 401) {
-        this.$router.push('/login'); // Redirect to login if unauthorized
+        this.$router.push('/login'); 
       }
     }
   },
@@ -44,7 +43,6 @@ export default {
     async logout() {
       try {
         await api.logoutUser();
-        // Redirect to login page after successful logout
         this.$router.push('/login');
       } catch (error) {
         console.error('Error logging out:', error);
