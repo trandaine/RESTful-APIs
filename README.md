@@ -8,7 +8,7 @@ See [Quizlet](https://quizlet.com/).
 ## Coursework Requirements:
 - Develop a CRUD web application using the JavaScript based MEVN stack
 - Discuss issues surrounding Internet and intranet technologies, such as browser dependency, accessibility, legal and security concerns.
-- Critically analyse and evaluate some of the kay differences between SQL and NoSQL databases.
+- Critically analyse and evaluate some of the key differences between SQL and NoSQL databases.
 
 ## Developing on NodeJs version:
 - Node.js@22.11.0
